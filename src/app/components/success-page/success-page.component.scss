@@ -1,0 +1,40 @@
+.successImageDiv{
+    width: 40%;
+    height: 35%;
+}
+th, td{
+    text-size-adjust: 20%;
+}
+.main-div{
+    width: device-width;
+    
+}
+@media screen and (max-width: 350px) {
+    img{
+        margin-left: 80px
+    }
+    span{
+        font-size: 85%;
+        margin-left: 40%;
+        
+    }
+    table{
+        margin-left: 20px;
+    }
+    main-div{
+        margin-left: 20%;
+    }
+  }
+  @media screen and (max-width: 400px) {
+    img{
+        margin-left: 40px
+    }
+    main-div, div{
+        margin-left: 25px;
+    }
+    span{
+        font-size: 70%;
+        margin-left: 25%;   
+    }
+  } 
+  

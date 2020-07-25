@@ -1,0 +1,180 @@
+
+.main-div {
+    width: 100%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 2%;
+}
+
+mat-card {
+    margin-top: 20px;
+    margin-left: 15px;
+    width: 200px;
+    padding: 0;
+}
+mat-card:hover {
+    box-shadow: 0 4px 8px 0 rgba(70, 71, 70, 0.2), 0 6px 20px 0 rgba(29, 29, 29, 0.19);
+}
+.bookImageDiv {
+    background-color: whitesmoke;
+}
+img {
+    padding: 10%;
+    width: 140px;
+    height: 160px;
+}
+.bookInfoDiv {
+    padding: 4% 10% 10%;
+}
+.span-title {
+    font-size: small;
+    font-weight: 500;
+    font-family: sans-serif;
+}
+.span-author {
+    font-size: xx-small;
+    font-weight: lighter;
+    font-family: sans-serif;
+}
+.span-price {
+    font-size: x-small;
+    font-weight: 500;
+    font-family: sans-serif;
+}
+.input-title {
+    height: 24px;
+    font-size: small;
+    font-weight: 500;
+    border: none;
+    outline: none;
+}
+.input-author {
+    height: 20px;
+    font-size: xx-small;
+    border: none;
+    outline: none;
+}
+.input-author-span {
+    padding-left: 1%;
+    height: 20px;
+    font-size: xx-small;
+    border: none;
+    outline: none;
+}
+.input-price {
+    height: 20px;
+    font-size: x-small;
+    font-weight: 500;
+    border: none;
+    outline: none;
+}
+.input-price-span {
+    padding-left: 1%;
+    height: 20px;
+    font-size: x-small;
+    font-weight: 500;
+    border: none;
+    outline: none;
+}
+button {
+    height: 32px;
+    width: 70px;
+    font-size: x-small;
+    background-color: brown;
+    color: white;
+    padding: 0;
+    margin-top: 3%;
+    border: none;
+
+    outline: none;
+}
+.book-details {
+    display: none;
+    position: absolute;
+}
+mat-card:hover + .book-details {
+    display: block;
+    margin-top: 2%;
+    position: absolute;
+    box-shadow: 0 4px 8px 0 rgba(70, 71, 70, 0.2),
+      0 6px 20px 0 rgba(29, 29, 29, 0.19);
+    // align-self: center;
+    width: 18%;
+    // min-height: 100px;
+    height: fit-content;
+    // margin-top: 10px;
+    background-color: whitesmoke;
+    margin-left: 12%;
+    z-index: 1;
+    padding: 2%;
+  }
+
+@media only screen and (width: 823px) {
+    .main-div {
+        background-color: green($color: #000000);
+        padding-left: 23%;
+        padding-right: 10%;
+        padding-bottom: 2%;
+        width: 100%;
+    }
+}
+@media only screen and (width: 812px) {
+    .main-div {
+        background-color: green($color: #000000);
+        padding-left: 23%;
+        padding-right: 10%;
+        padding-bottom: 2%;
+        width: 100%;
+    }
+}
+@media only screen and (width: 768px) {
+    .main-div {
+
+        width: 100%;
+        padding-left: 17%;
+        padding-right: 10%;
+        padding-bottom: 2%;
+        flex-flow: row wrap;
+        box-sizing: border-box;
+        display: flex;
+        place-content: center flex-start;
+        align-items: center;
+
+    }
+}
+@media only screen and (width: 736px) {
+    .main-div {
+        background-color: green($color: #000000);
+        padding-left: 20%;
+        padding-right: 10%;
+        padding-bottom: 2%;
+        width: 100%;
+    }
+}
+@media only screen and (width: 731px) {
+    .main-div {
+        background-color: green($color: #000000);
+        padding-left: 20%;
+        padding-right: 10%;
+        padding-bottom: 2%;
+        width: 100%;
+    }
+}
+@media only screen and (width: 640px) {
+    .main-div {
+        background-color: green($color: #000000);
+        padding-left: 15%;
+        padding-right: 10%;
+        padding-bottom: 2%;
+        width: 100%;
+    }
+}
+@media only screen and (width: 1024px) {
+    .main-div {
+        background-color: green($color: #000000);
+        padding-left: 15%;
+        padding-right: 10%;
+        padding-bottom: 2%;
+        width: 100%;
+    }
+}

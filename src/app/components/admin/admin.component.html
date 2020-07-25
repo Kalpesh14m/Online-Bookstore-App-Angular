@@ -1,0 +1,16 @@
+ <div>   
+    <mat-toolbar style="position: fixed ;z-index: 100;" class="tool" fxLayout="row" fxLayoutAlign="space-around center">
+        <div>
+                <img class="content" src="../../../assets/images/education.svg" />
+                <a class="content" style="color: aliceblue"
+                href="http://localhost:4200/admin-dashboard/sellers"
+                > BookStore</a>
+        </div>
+            
+            <span >Welcome Admin</span>
+        <button  mat-icon-button style=" color: aliceblue; outline: none" matTooltip="Logout" (click)="onLogout()">
+            <mat-icon >logout</mat-icon>
+        </button>
+    </mat-toolbar>    
+</div><br><br><br>
+<router-outlet></router-outlet>

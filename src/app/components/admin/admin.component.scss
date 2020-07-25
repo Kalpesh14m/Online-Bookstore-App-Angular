@@ -1,0 +1,35 @@
+.main-div{
+    width: device-width;
+    // width:92%;
+    // margin-left: 4%;
+}
+.tool{
+    background-color: rgb(179, 59, 59);
+    width: device-width;
+    height: 55px;
+    color: aliceblue;
+    
+ }
+.logo{
+    position: absolute;
+    color:aliceblue;
+    margin-top: 1.2%;
+    margin-left: 15%
+}
+
+@media only screen and (max-width: 600px) {
+  .content{
+    font-size: 80%;
+    width: 20%;
+  }
+  mat-icon{
+    font-size: 120%;
+  }
+  // span{
+  //   font-size: 100%;
+  // }
+  
+    
+  
+}
+  

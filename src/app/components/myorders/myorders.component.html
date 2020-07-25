@@ -1,0 +1,88 @@
+<div>
+    <div>    
+        <mat-toolbar class="tool" fxLayout="row" fxLayoutAlign="space-around center">
+            <a href="http://localhost:4200/dashboard" style="color: white;"><span><img src="../../../assets/images/education.svg" />BookStore</span></a>
+                <span>My Orders</span>
+            <div>
+            <button
+                mat-icon-button
+                [matMenuTriggerFor]="signoutmenu"
+                disableRipple
+                style="outline: none;"
+                >
+                <img  mat-card-avatar [src]="profile" alt="profile" class="profile" style="width: 80%;height: 85%;border-radius: 50%;" />
+            </button>
+            <mat-menu
+                #signoutmenu="matMenu"
+                (click)="$event.stopPropagation()"
+                class="profilemenu"
+                xPosition="after"
+                yPosition="below"
+            >
+            <div>
+                <img mat-card-avatar [src]="profile" class="pic" />
+                <div class="upload-img">
+                  <label for="file-input">
+                    <mat-icon class="icon">camera_alt</mat-icon>
+                  </label>
+                  <input
+                    type="file"
+                    (change)="OnSelectedFile($event)"
+                    class="fileuploadbtn"
+                    id="file-input"
+                  />
+                </div>
+              </div>
+              <div class="usertext">
+                <div class="mat-subheading-1">{{ this.username }}</div>
+                <div class="mat-subheading-1">{{ this.usermail }}</div>
+                <br />
+              </div>
+              <mat-divider></mat-divider><br />
+              <div class="editprofile">
+                <button
+                  class="edit"
+                  mat-raised-button
+                  class="editbutton"
+                  (click)="openDialogztoedit()"
+                  style="margin-bottom: 1%;"
+                >
+                  Edit Profile
+                </button><br/>
+              </div>
+              <br />
+              <mat-divider></mat-divider>
+              <div class="logout"><br>
+                <button id="logout" mat-button (click)="Logout()">Sign Out</button>
+              </div>
+            </mat-menu>
+    </div>
+        </mat-toolbar>    
+    </div>
+    <div class="table-responsive">
+        <table>
+            <tr>
+                <th>S No.</th>
+                <th>Book Name</th>
+                <th>Quantity</th>
+                <th>Total Price</th>
+                <th>Vendor Name</th>
+                <th>Review</th>
+            </tr>
+              <tr *ngFor="let book of orderedbooks;index as i">
+                <td>{{i+1}}</td>
+                <td>{{book.bookName}}</td>
+                <td>{{book.qunatity}}</td>
+                <td>{{book.totelPrice}}</td>
+                <td>{{book.venderName}}</td>
+                <div *ngIf="book.review==0;then ReviewText;else rating"></div>
+                <ng-template #ReviewText>
+                  <td (click)="openDialog(book)"><button style="border: none;background-color: inherit;outline: none;color: rgb(179, 59, 59);">Review</button></td>
+                </ng-template>
+                <ng-template #rating>
+                  <td (click)="openDialog(book)"><button style="border: none;background-color: inherit;outline: none;color: rgb(179, 59, 59);">{{book.review}}</button></td>
+                </ng-template>
+              </tr>
+        </table>
+    </div>
+</div>

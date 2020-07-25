@@ -1,0 +1,111 @@
+<mat-card fxLayout="column" fxLayoutGap="2%" ngClass.lt-lg="mat-card-lt-md">
+  <mat-toolbar fxLayoutAlign="center center"
+    ><span>Add Book Form </span>
+  </mat-toolbar>
+  <div>
+    <form [formGroup]="bookForm" fxLayout="column" (ngSubmit)="onFormSubmit()">
+      <div fxLayoutAlign="space-between center">
+        <mat-form-field appearance="outline" class="titleInput">
+          <mat-label>Title</mat-label>
+          <input
+            required
+            matInput
+            formControlName="bookName"
+            autocomplete="off"
+          />
+          <mat-error *ngIf="bookForm.get('bookName').hasError('required')">
+            book title is required</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="authorInput">
+          <mat-label>Author</mat-label>
+          <input
+            required
+            matInput
+            formControlName="authorName"
+            autocomplete="off"
+          />
+          <mat-error *ngIf="bookForm.get('authorName').hasError('required')">
+            book author name is required</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div fxLayoutAlign="space-between center">
+        <mat-form-field appearance="outline" class="priceInput">
+          <mat-label>Amount</mat-label>
+          <input
+            required
+            matInput
+            type="number"
+            class="example-right-align"
+            min="0"
+            autocomplete="off"
+            formControlName="price"
+          />
+          <mat-error *ngIf="bookForm.get('price').hasError('min')"
+            >Amount should not be less than zero</mat-error
+          >
+          <mat-error *ngIf="bookForm.get('price').hasError('required')"
+            >book price is required</mat-error
+          >
+          <span matPrefix>₹&nbsp;</span>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="quantityInput">
+          <mat-label>Quantity</mat-label>
+          <input
+            matInput
+            required
+            type="number"
+            min="1"
+            autocomplete="off"
+            formControlName="quantity"
+          />
+          <mat-error *ngIf="bookForm.get('quantity').hasError('min')"
+            >Quantity should not be less than zero</mat-error
+          >
+          <mat-error *ngIf="bookForm.get('quantity').hasError('pattern')"
+            >Quantity should not be decimal values</mat-error
+          >
+          <mat-error *ngIf="bookForm.get('quantity').hasError('required')"
+            >book quantity is required</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <mat-form-field appearance="outline">
+        <mat-label>Description</mat-label>
+        <textarea
+          required
+          matInput
+          style="overflow: hidden;"
+          formControlName="description"
+          autocomplete="off"
+        ></textarea>
+        <mat-error *ngIf="bookForm.get('description').hasError('required')"
+          >book description is required</mat-error
+        >
+      </mat-form-field>
+      <div fxLayout="column">
+        <input
+          class="fileButton"
+          type="file"
+          formControlName="imageURL"
+          autocomplete="off"
+          (change)="onUploadBookImage($event)"
+        />
+        <mat-error *ngIf="bookForm.get('imageURL').hasError('required')"
+          >image must be uploaded</mat-error
+        >
+        <div fxLayoutAlign="end">
+          <button
+            mat-raised-button
+            type="submit"
+            [disableRipple]="true"
+            [disabled]="!bookForm.valid"
+          >
+            submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</mat-card>

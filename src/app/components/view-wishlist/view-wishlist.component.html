@@ -1,0 +1,37 @@
+<mat-toolbar>
+  <span class="title-left">added To list</span>
+</mat-toolbar>
+<h3 mat-dialog-title>book added to   <span class="span">WishList</span></h3><br>
+
+<div fxLayout="row" fxLayoutAlign="space-around center">
+<div class="bookImageDiv" style="vertical-align:-150px" > 
+   <img  src={{data.bookImage}}>
+   </div> 
+  <span class="right">
+      <div class="name">
+     {{data.bookname}}
+      </div>
+     <div class="author">
+     By: {{data.bookauthor}}
+     </div>
+     <div class="info">
+     About: {{data.bookinfo}}
+     </div>
+     <div class="price">
+     Rs.{{data.bookprice}}
+     </div>
+     </span>
+</div>
+
+<mat-divider></mat-divider><br><br>
+
+<div class="box" style="color: rgb(240, 233, 233);">
+  <div class="left"   fxLayout="row" fxLayoutAlign="space-around center" >
+  <button mat-raised-button    [mat-dialog-close] [routerLink]="['viewallWishList']" >View WishList</button>   <button mat-stroked-button   [mat-dialog-close]  [routerLink]="['dashboard']">Continue Shopping</button>
+</div>  
+</div>
+
+
+
+
+             

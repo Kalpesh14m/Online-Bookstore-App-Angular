@@ -1,0 +1,105 @@
+.my-card {
+    width: 300px;
+    outline: none;
+    border: none;
+    //margin-right: 20%;
+    display: flex;
+    padding: 10px;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    justify-content: center;
+    box-shadow: 0 4px 8px 0  rgb(179, 59, 59),0 6px 20px 0 rgba(241, 37, 37, 0.19);
+    border-radius: 13px;
+  }
+  .mat-toolbar {
+    background-color: rgb(179, 59, 59);
+  }
+  .title-center {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+  // @media screen and (max-width: 959px) {
+  //   /* Column Gap */
+  //   .my-card {
+  //     margin-right: 50px;
+  //   }
+  // }
+  
+  // @media screen and (max-width: 599px) {
+  //   .my-card {
+  //     display: flex;
+  //     flex-direction: column;
+  //     justify-content: flex-start;
+  //   }
+  // }
+  
+  //  .example-container .mat-form-field + .mat-form-field {
+  //      margin-left: 8px;
+  //    }
+  .mat-form-field {
+    width: 100%;
+    padding-top: 5%;
+    color: black;
+    // padding: 0.4375rem 0;
+  }
+  
+  .mat-radio-button {
+    margin: 0 3px 0 3px;
+    padding:12px;
+    margin-top:0px;
+  }
+  .right {
+   margin-top:-9%;
+  margin-left:49%;
+  color: #2da1c1;
+  }
+  
+  
+  
+  
+  input[type=text] {
+   background-color:whitesmoke;
+  }
+  
+  
+  .a{
+    font-size: medium;
+    text-decoration: none;
+   }
+  
+  .container-fluid {
+    margin-left: 35%;
+    padding: 0px;
+  }
+  
+  .mat-raised-button {
+    margin-top: 10px;
+    background-color: rgb(179, 59, 59);
+    color: aliceblue;
+    margin-left: 70px;
+    }
+  
+  
+  .mat-button{
+    color:  rgb(179, 59, 59);
+    margin-bottom: -50%;
+    border-radius: 30px;
+    height:40px;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  .mat-card {
+    margin-top: 20px;
+  }
+  
+  .container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }

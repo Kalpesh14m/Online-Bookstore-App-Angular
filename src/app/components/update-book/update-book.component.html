@@ -1,0 +1,61 @@
+<mat-card fxLayout="column" fxLayoutGap="2%" ngClass.lt-lg="mat-card-lt-md">
+  <mat-toolbar fxLayoutAlign="center center"
+    ><span>Update Book Form </span>
+  </mat-toolbar>
+  <div>
+    <form
+      [formGroup]="updateBookForm"
+      fxLayout="column"
+      (ngSubmit)="onFormSubmit()"
+    >
+      <mat-form-field appearance="outline" class="priceInput">
+        <mat-label>Amount</mat-label>
+        <input
+          required
+          matInput
+          type="number"
+          class="example-right-align"
+          min="0"
+          autocomplete="off"
+          formControlName="price"
+          [(ngModel)]="data.price"
+        />
+        <mat-error *ngIf="updateBookForm.get('price').hasError('min')"
+          >Amount should not be less than zero</mat-error
+        >
+        <mat-error *ngIf="updateBookForm.get('price').hasError('required')"
+          >book price is required</mat-error
+        >
+        <span matPrefix>₹&nbsp;</span>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="quantityInput">
+        <mat-label>Quantity</mat-label>
+        <input
+          matInput
+          required
+          type="number"
+          min="1"
+          autocomplete="off"
+          formControlName="quantity"
+          [(ngModel)]="data.quantity"
+        />
+        <mat-error *ngIf="updateBookForm.get('quantity').hasError('min')"
+          >Quantity should not be less than one</mat-error
+        >
+        <mat-error *ngIf="updateBookForm.get('quantity').hasError('required')"
+          >book quantity is required</mat-error
+        >
+      </mat-form-field>
+      <div fxLayoutAlign="end">
+        <button
+          mat-raised-button
+          type="submit"
+          [disableRipple]="true"
+          [disabled]="!updateBookForm.valid"
+        >
+          submit
+        </button>
+      </div>
+    </form>
+  </div>
+</mat-card>

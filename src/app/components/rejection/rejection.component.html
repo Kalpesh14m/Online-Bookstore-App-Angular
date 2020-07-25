@@ -1,0 +1,28 @@
+<div>
+    <mat-toolbar
+        style="background-color: brown; height: 80%"
+        fxLayout="row"
+        fxLayoutAlign="space-around center">
+        <span style="color: aliceblue">Description</span>
+    </mat-toolbar>
+    <div fxLayout="column" fxLayoutAlign="space-around center" style="margin-top: 5%">
+        <mat-form-field appearance="outline" fxFlexFill="fxFlexFill">
+            <mat-label>Description</mat-label>
+            <textarea
+                matInput="description"
+                [formControl]="description"
+                required
+                name="description"
+                style="background: none;color: black"></textarea>
+                <mat-error *ngIf="description.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+        <div>
+            <button
+                mat-flat-button="mat-flat-button"
+                mat-dialog-close="mat-dialog-close"
+                color="warn"
+                [disabled]="description.invalid"
+                (click)="onSubmit()">Submit</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,134 @@
+<div class="main-div">
+  <div style="outline: none;" fxLayout="row" fxLayoutAlign="end">
+    <button
+      mat-raised-button
+      class="addBookButton"
+      fxLayoutAlign="center"
+      [disableRipple]="true"
+      (click)="openBookForm()"
+    >
+      <span class="bookText">Add Book</span>
+    </button>
+  </div>
+  <div
+    fxLayoutGap="40px"
+    fxLayout.lt-sm="column"
+    fxLayout.sm="row wrap"
+    fxLayoutAlign.sm="start center"
+    fxLayout.md="row wrap"
+    fxLayoutAlign.md="start center"
+    fxLayoutAlign.lt-sm="center center"
+    fxLayout.lg="row wrap"
+    fxLayoutAlign.lg="start center"
+    fxLayout.gt-lg="row wrap"
+  >
+    <div *ngFor="let book of books" style="margin: 0px;" fxLayout="row">
+      <mat-card>
+        <div class="bookImageDiv" fxLayoutAlign="center">
+          <img src="{{ book.imageURL }}" />
+        </div>
+
+        <div class="bookInfoDiv" fxLayout="column">
+          <div class="input-title">
+            {{ book.bookName }}
+          </div>
+          <div fxlayout="row" class="input-author">
+            by {{ book.authorName }}
+          </div>
+          <!-- <div fxlayout="row">
+            <span class="input-price-span">Rs.</span>
+            <input
+              class="input-price"
+              matInput
+              type="text"
+              autocomplete="off"
+              [(ngModel)]="book.price"
+              (click)="onUpdateBookForm(book)"
+            />
+          </div> -->
+          <div fxLayout="row">
+            <span class="input-price">Rs.</span>
+            <input
+              class="input-price"
+              matInput
+              type="text"
+              autocomplete="off"
+              [(ngModel)]="book.price"
+              (click)="onUpdateBookForm(book)"
+            />
+          </div>
+          <div fxLayout="row">
+            <span class="input-price">Qty.</span>
+            <input
+              class="input-price"
+              matInput
+              type="text"
+              autocomplete="off"
+              [(ngModel)]="book.quantity"
+              (click)="onUpdateBookForm(book)"
+            />
+          </div>
+          <div class="input-price" *ngIf="book.rejectionCounts > 0">
+            Rejection: {{ book.rejectionCounts }}
+          </div>
+          <div fxLayout="row" fxLayoutAlign="space-between">
+            <button
+              class="approval-button"
+              *ngIf="!book.approved && !book.approvalSent"
+              mat-raised-button
+              fxLayoutAlign="center"
+              [disableRipple]="true"
+              (click)="onApproval(book.bookId)"
+            >
+              APPROVAL
+            </button>
+            <button
+              class="sent-button"
+              *ngIf="!book.approved && book.approvalSent"
+              mat-raised-button
+              fxLayoutAlign="center"
+              [disableRipple]="true"
+            >
+              SENT
+            </button>
+            <button
+              class="approved-button"
+              *ngIf="book.approved"
+              mat-raised-button
+              fxLayoutAlign="center"
+              [disableRipple]="true"
+            >
+              APPROVED
+            </button>
+            <button
+              class="delete-button"
+              mat-raised-button
+              fxLayoutAlign="center"
+              [disableRipple]="true"
+              
+            >
+              DELETE
+            </button>
+          </div>
+        </div>
+      </mat-card>
+      <div class="book-details">
+        <h5>Book Details</h5>
+        <span class="input-price">{{ book.description }}</span>
+      </div>
+    </div>
+    
+  </div>
+  <div class="paginator" fxLayout = "row" fxLayoutAlign="center center" fxLayoutGap = "20px">
+    <div><button class = "page-buttons" mat-mini-fab [disableRipple]="true"><</button></div>
+    <div *ngFor="let page of pages" >
+      <div  > <button (click)="onBooksByPage(page)" class="page-number"> {{page}}</button> </div>
+    </div>
+    <div><button class = "page-buttons" mat-mini-fab [disableRipple]="true" >></button></div>
+    <!-- <mat-paginator   #paginator [length] = "15"
+      [pageIndex]="1"
+       [pageSize] = "8"
+    >
+    </mat-paginator> -->
+  </div>  
+</div>

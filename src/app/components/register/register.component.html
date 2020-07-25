@@ -1,0 +1,80 @@
+<!--<div
+  fxLayoutAlign="center center"
+  class="container"
+  style="
+    background-image: url('../../../assets/images/bookstore-wallpaper1.jpg');
+  "
+  fxFill
+>-->
+<div fxLayout="column" fxLayoutAlign="space-around center">
+    <mat-card fxLayout="column" fxLayoutAlign="space-around">
+        <mat-toolbar class="container" flexLayout="row">
+            <mat-toolbar-row fxLayoutAlign="center">Registration Form</mat-toolbar-row>
+        </mat-toolbar>
+        <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input matInput maxlength="25" type="text" [formControl]="name" placeholder="Name" autocomplete="off" class="input" />
+            <mat-icon matSuffix>account_circle</mat-icon>
+        </mat-form-field>
+        <div *ngIf="name.hasError && (name.invalid || name.touched)">
+            <small class="text-danger" *ngIf="name.hasError('required') && name.touched">&nbsp;&nbsp;Name is Required</small>
+            <small class="text-danger" *ngIf="name.hasError('minlength')">Min 3 chars</small>
+            <small class="text-danger" *ngIf="name.hasError('pattern')">Only alphabet are allowed</small>
+        </div>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Email Id</mat-label>
+            <input matInput maxlength="35" [formControl]="email" placeholder="Email Id" autocomplete="off" class="input" />
+            <mat-icon matSuffix>email</mat-icon>
+        </mat-form-field>
+        <div *ngIf="email.hasError &&(email.invalid || email.touched)">
+            <small class="text-danger" *ngIf="email.hasError('required') && email.touched">mail is required</small>
+            <small class="text-danger" *ngIf="email.hasError('pattern') && email.dirty && email.invalid">enter valid mail</small>
+        </div>
+
+        <mat-form-field appearance="outline">
+            <mat-label>User Name</mat-label>
+            <input matInput maxlength="14" type="text" #MyUserName (input)="MyUserName.value" [formControl]="username" autocomplete="off" placeholder="User Name" class="input" />
+            <mat-icon matSuffix>face</mat-icon>
+        </mat-form-field>
+        <div *ngIf="username.hasError && (username.invalid && username.touched)">
+            <small class="text-danger" *ngIf="username.hasError('required') && username.touched">User name is required</small>
+            <small class="text-danger" *ngIf="username.hasError('minlength')">Minimum 8 charecters</small>
+            <small class="text-danger" *ngIf="username.hasError('pattern') && username.invalid">User name must start with capital & 1 number,1 symbol</small>
+        </div>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput maxlength="16" [type]="passwordType" placeholder="Password" autocomplete="off" [formControl]="password"
+                class="input" />
+            <mat-icon matSuffix *ngIf="(!show)" (click)="onclick()">
+                visibility_off</mat-icon>
+            <mat-icon matSuffix *ngIf="(show)" (click)="onclick()">
+                visibility_on</mat-icon>
+        </mat-form-field>
+        <div *ngIf="password.hasError && (password.invalid || password.touched)">
+            <small class="text-danger" *ngIf="password.hasError('required') && password.touched">password is required</small>
+            <small class="text-danger" *ngIf="password.hasError('minlength')">Min 8 chars</small>
+            <small class="text-danger" *ngIf="password.hasError('pattern') && password.invalid">Must start with Capital and must contain 1 num,1 special symbol</small>
+        </div>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Mobile Number</mat-label>
+            <input matInput type="number"  onkeydown="javascript: return event.keyCode === 8 ||
+            event.keyCode === 46 ? true : !isNaN(Number(event.key))" onKeyPress="if(this.value.length==10) return false;"  placeholder="Mobile Number" autocomplete="off" [formControl]="phone" class="input" />
+            <mat-icon matSuffix>phone_android</mat-icon>
+        </mat-form-field>
+        <div *ngIf="phone.hasError && (phone.invalid || phone.touched)">
+            <small class="text-danger" *ngIf="phone.hasError('required') && phone.touched">Phone number is required</small>
+            <small class="text-danger" *ngIf="phone.hasError('pattern')">Enter valid mobile number</small>
+        </div>
+        <mat-radio-group aria-label="Select an option" fxLayoutGap="10%" [(ngModel)]="radioval">
+            <mat-radio-button value="3">customer</mat-radio-button>
+            <mat-radio-button value="2">vendor</mat-radio-button>
+        </mat-radio-group>
+        <div fxFlexAlign="end" fxLayoutGap="25px">
+            <a><button mat-button mattooltip="Login" style="color:rgb(114, 10, 10);" (click)="onLogin()">have an Account?</button></a>
+            <button mat-raised-button mattooltip="Register" class="regbutton" (click)="onRegister()">Register</button>
+        </div>
+    </mat-card>
+</div>

@@ -1,0 +1,81 @@
+  
+    
+      <div fxLayout="column" fxLayoutAlign="space-around center">
+          <mat-card>
+        <mat-toolbar>
+          <span class="title-center">{{ title }}</span>
+        </mat-toolbar>
+        <form [formGroup]="LoginForm">
+        <mat-form-field appearance="outline">
+          <mat-label>UserId</mat-label>
+          <input
+            type="text"
+            formControlName="loginid"
+            placeholder="username or mail or phone" 
+            rows="3"
+            maxlength="300"
+            matInput
+            autocomplete="off"
+            style="background: none"
+            [ngClass]="{ 'is-invalid': submitted && f.loginid.errors }"
+          />
+          <mat-icon matSuffix>account_circle</mat-icon>
+          <mat-error *ngIf="LoginForm.get('loginid').hasError('required')"
+            >*username is required</mat-error
+          >
+          <mat-error *ngIf="LoginForm.get('loginid').hasError('minlength')"
+            >*provide minimum 4 characters</mat-error
+          >
+          <mat-error *ngIf="LoginForm.get('loginid').hasError('maxlength')"
+            >provide less than 15 characters</mat-error
+          > </mat-form-field
+        ><br />
+
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            formControlName="password"
+            placeholder="password"
+            rows="3"
+            maxlength="300"
+            matInput
+            style="background: none"
+            [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon matSuffix>{{
+              hide ? "visibility_off" : "visibility"}}</mat-icon>
+          </button>
+          <mat-error *ngIf="LoginForm.get('password').hasError('required')">*password is required</mat-error>
+          <mat-error *ngIf="LoginForm.get('password').hasError('minlength')">provide a strong password</mat-error>
+          <mat-error *ngIf="LoginForm.get('password').hasError('maxlength')">provide password less than 12 characters</mat-error> 
+          </mat-form-field>
+          <div class="right">
+            <button mat-button disableRipple onclick="this.blur()" style="outline:none;" (click)="opendialogforforgotpassowrd()">forgot password?</button>
+          </div>
+          <div>
+            <mat-radio-group formControlName="userroles" #roleselected>
+              <mat-radio-button class="firstRadiobutton" value="vendor">vendor</mat-radio-button>
+              <mat-radio-button value="customer">customer</mat-radio-button>
+              <mat-error *ngIf="LoginForm.get('userroles').hasError('required') && roleselected.touched">*role is required</mat-error><br/>
+            </mat-radio-group>
+          </div>
+          <div class="left">
+            <button mat-button  mat-dialog-close onclick="this.blur()" style="outline: none;" [routerLink]="['/register']">Sign up</button>
+            <div *ngIf="popup; then navigate;else popupbtn"></div>
+            <ng-template #navigate>
+              <button mat-raised-button class="loginbutton" (click)="onSubmit()" type="submit">Login</button>
+            </ng-template>
+            <ng-template #popupbtn>
+              <button mat-raised-button mat-dialog-close class="loginbutton" (click)="onSubmit()" type="submit">Login</button>
+            </ng-template>
+          </div>
+        </form>
+        </mat-card>
+         </div>

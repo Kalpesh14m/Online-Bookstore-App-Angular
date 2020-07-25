@@ -1,0 +1,47 @@
+<br><br>
+<div class="main-div" fxLayout="column" fxLayoutAlign="space-around center">
+
+    <div class="successImageDiv" fxLayoutAlign="center">
+        <img src="../../../assets/images/SuccessPage.JPG"/>
+    </div>
+
+<span>Hurray!!!your order is confirmed</span>
+<span>the order id is #{{orderId}} save the order id for</span>
+<span>further communication...</span>
+<div fxLayout="column" fxLayoutAlign="center-center">
+    <table
+        class="table table-bordered"
+        style="font-size: 60%; text-align: center; margin-top: 4%">
+        <thead>
+            <tr>
+                <th scope="col">Email us</th>
+                <th scope="col">Contact us</th>
+                <th scope="col">Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>admin@bookstore.com</td>
+                <td>+918163475881</td>
+                <td>42,14th Main, 15th cross,Section 4, opp to BDA complex, near Kumarakom
+                    restuarant, HSR Layout, Bangalore, 560034</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div fxLayout="row" fxLayoutAlign="space-around center" style="margin-top: 2%">
+    <div style="margin-left: -3%">
+        <button
+            mat-raised-button
+            style="background-color: rgb(115, 115, 226); color: aliceblue" [routerLink]="['/dashboard']">Continue Shopping</button>
+    </div>
+    <div style="margin-left: 3%">
+        <button
+            mat-raised-button
+            color="warn"
+            style="width: 130%"
+            (click)="openDialog()">Add Review</button>
+    </div>
+</div>
+
+</div>

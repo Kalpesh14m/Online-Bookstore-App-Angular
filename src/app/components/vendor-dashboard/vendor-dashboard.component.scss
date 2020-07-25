@@ -1,0 +1,95 @@
+.toolBarDiv {
+  position: fixed;
+}
+mat-toolbar {
+  width: 100%;
+  background-color: #a03037;
+  top: 0;
+  position: fixed;
+  z-index: 100;
+}
+.search-mat-card {
+  margin-left: 2%;
+  width: 40%;
+  height: 60%;
+  padding: 0px;
+}
+.searchIcon {
+  opacity: 0.5;
+}
+.searchIcon:hover {
+  opacity: 1;
+}
+.searchInput {
+  height: 90%;
+  width: 90%;
+  border: none;
+  outline: none;
+}
+.titleText {
+  margin-left: 12%;
+  color: white;
+}
+@media only screen and (max-width: 720px) {
+  .titleText {
+    font-size: medium;
+    margin-left: 2%;
+    color: white;
+  }
+}
+.bookText {
+  font-size: 90%;
+  color: white;
+}
+.accountIcon {
+  font-size: 200%;
+  opacity: 0.5;
+}
+.accountIcon:hover {
+  opacity: 1;
+}
+button {
+  outline: none;
+}
+.spanClass {
+  flex-grow: 0.5;
+}
+
+.bookInput {
+  padding: 1% 4% 1%;
+  border: none;
+  outline: none;
+}
+.addBookButton {
+  color: white;
+  width: 15%;
+  background-color: #a03037;
+  border-radius: 2vw;
+}
+
+::placeholder {
+  font-size: 90%;
+}
+.mainSellingSpan {
+  font-weight: bold;
+  font-size: 150%;
+}
+.subSellingSpan {
+  font-weight: 500;
+}
+.mainContent {
+  width: 100%;
+  height: 40%;
+}
+.mainContainer-lt-md {
+  width: 100%;
+  height: 35%;
+  margin-top: 50px;
+  background-image: url('../../../assets/images/bookstore-wallpaper2.jpg');
+}
+.mainContainer-lg {
+  width: 100%;
+  height: 25%;
+  margin-top: 50px;
+  background-image: url('../../../assets/images/bookstore-wallpaper2.jpg');
+}

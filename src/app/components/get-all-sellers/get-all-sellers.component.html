@@ -1,0 +1,33 @@
+<div class="seller" fxLayout="column">
+    <app-admin></app-admin>
+    <table
+        class="table table-bordered"
+        style="font-size: 80%; margin-top: 2%; width: 100%"
+        *ngIf="found">
+        <tr>
+            <th>Seller Id</th>
+            <th>Name</th>
+            <th>User Name</th>
+            <th>Action</th>
+        </tr>
+
+        <tr *ngFor="let user of users; let i = index">
+            <td style="text-align: center">{{i+1}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.userName}}</td>
+            <td style="text-align: center" class="contact">
+                <a
+                    mat-button
+                    class="contactButton"
+                    style="color: brown"
+                    href="http://localhost:4200/admin-dashboard/booksForVerification"
+                    (click)="onLink(user)">Verify Books</a>
+            </td>
+        </tr>
+    </table>
+
+    <div *ngIf="!found" fxLayoutAlign="space-around center">
+        <span style="position: absolute; background-color: whitesmoke; font-size: x-large">No Seller For Verification</span>
+        <img src="../../../assets/images/UserNotFound.jpeg" style="width: 50%">
+    </div>
+</div>

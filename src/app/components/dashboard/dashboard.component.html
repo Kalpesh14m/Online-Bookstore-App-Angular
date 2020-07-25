@@ -1,0 +1,134 @@
+<div style="width: 100%; height: 100%;">
+  <mat-toolbar class="tool" fxLayout="row" fxLayoutAlign="space-between center">
+    <div class="titleText" fxLayout="row" fxLayoutGap="2%">
+      <img src="../../../assets/images/education.svg" />
+      <a
+        routerLink="/dashboard/getallbooks"
+        routerLinkActive="active"
+        matTooltip="user Dashboard"
+        style="color: white;"
+      >
+        BookStore
+      </a>
+    </div>
+
+    <mat-card
+      class="search-mat-card"
+      fxLayout="row"
+      fxLayoutAlign="space-around center"
+    >
+      <button mat-icon-button [disableRipple]="true" matTooltip="search">
+        <mat-icon class="searchIcon">search</mat-icon>
+      </button>
+      <input
+        (input)="onKey($event)"
+        class="searchInput"
+        type="text"
+        placeholder="Search.."
+      />
+    </mat-card>
+    <button class="cart" mat-icon-button (click)="onCart()" matTooltip="Cart">
+      Cart
+      <mat-icon matBadge="{{ cartCounter }}" MatBadgeSize="small"
+        >shopping_cart</mat-icon
+      ></button
+    ><br />
+
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="signoutmenu"
+      disableRipple
+      style="outline: none;"
+      matTooltip="profile"
+    >
+      <img mat-card-avatar [src]="profile" alt="profile" class="profile" />
+    </button>
+    <mat-menu
+      #signoutmenu="matMenu"
+      (click)="$event.stopPropagation()"
+      class="profilemenu"
+      xPosition="after"
+      yPosition="below"
+    >
+      <div *ngIf="login; then loginblock; else notloggedblock"></div>
+      <ng-template #loginblock>
+        <div fxLayoutAlign="space-around center">
+          <img mat-card-avatar [src]="profile" class="pic" />
+          <div class="upload-img">
+            <label for="file-input">
+              <mat-icon class="icon">camera_alt</mat-icon>
+            </label>
+            <input
+              type="file"
+              (change)="OnSelectedFile($event)"
+              class="fileuploadbtn"
+              id="file-input"
+            />
+          </div>
+        </div>
+        <div class="usertext">
+          <div class="mat-subheading-1">{{ this.username }}</div>
+          <div class="mat-subheading-1">{{ this.usermail }}</div>
+        </div>
+        <mat-divider></mat-divider><br/>
+        <div class="editprofile"  fxLayout="column" fxLayoutAlign="center none">
+          <button
+            class="edit"
+            mat-button
+            class="editbutton"
+            (click)="openDialogztoedit()"
+            style="margin-bottom: 1%;"
+          >
+          <mat-icon style="color: black" matPrefix>edit</mat-icon>
+            Edit Profile</button
+          ><br />
+          <!--<mat-divider></mat-divider>-->
+          <button
+            class="edit"
+            mat-button
+            class="editbutton"
+            (click)="myorders()"
+            style="margin-bottom: 1%;"
+          >
+          <mat-icon style="color: black" matPrefix>add_shopping_cart</mat-icon>
+            My orders
+          </button><br>
+         <!-- <mat-divider></mat-divider>-->
+          <button
+          class="edit"
+         mat-button
+         class="editbutton"
+          (click)="mywishlist()"
+         >
+         <mat-icon style="color: black" matPrefix>store</mat-icon>
+          My WishList</button
+        >
+      </div><br/>
+        <mat-divider></mat-divider>
+        <div class="logout"  fxLayout="row" fxLayoutAlign="center none">
+          
+          <button id="logout" mat-button (click)="Logout()">
+              <mat-icon style="color: black" matPrefix>perm_identity</mat-icon>  
+              Sign Out</button>
+        </div>
+      </ng-template>
+      <ng-template #notloggedblock>
+        <i><div style="padding-top: 8%;" class="mat-headline">Welcome</div> </i
+        ><br />
+        <mat-divider></mat-divider><br />
+        <div fxLayout="column" fxLayoutAlign="space-around center">
+          <button mat-button class="signup" (click)="onsignup()">
+            <mat-icon style="color: black" matPrefix>account_circle</mat-icon>
+            Sign Up
+          </button
+          ><br />
+          <button mat-button class="log" (click)="openDialog()">
+              <mat-icon style="color: black" matPrefix>how_to_reg</mat-icon>
+            Sign In
+          </button>
+        </div>
+      </ng-template>
+    </mat-menu>
+  </mat-toolbar>
+  <router-outlet></router-outlet><br><br><br>
+  </div>

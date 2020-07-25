@@ -1,0 +1,291 @@
+.dashboard {
+  // width:92%;
+  // margin-left: 4%;
+  top: 0px;
+  left: 0px;
+  width: 1366px;
+  height: 1322px;
+  border: 1px solid #e2e2e2;
+  opacity: 1;
+  background: #ffffff 0% 0% no-repeat padding-box;
+}
+
+.mat-icon:hover {
+  color: blanchedalmond;
+}
+
+.pic:hover {
+  color: blanchedalmond;
+}
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color:black;
+  color: white;
+  height: 40px;
+  padding-left: 17%;
+  font-size: 16px;
+
+}
+
+
+
+.left {
+  float: right;
+  height: -10px;
+  width: 15%;
+  margin-top: -47%;
+  margin-right: -20%;
+  border-color: white;
+}
+.mat-icon {
+  color: white;
+}
+.mat-paginator {
+  padding-bottom: 30%;
+}
+
+.box {
+  width: 100%;
+  height: 100%;
+  padding: 25%;
+  border: 1px solid whitesmoke;
+  border-radius: 1px;
+  border-color: lightgray;
+}
+
+.logo {
+  position: absolute;
+  color: aliceblue;
+  margin-top: 1.5%;
+  margin-left: 15%;
+}
+.cartname {
+  position: absolute;
+  color: aliceblue;
+  margin-top: 1.5%;
+  margin-left: 64%;
+}
+.loginText {
+  position: absolute;
+  color: aliceblue;
+  margin-top: 1.5%;
+  margin-left: 75%;
+}
+
+.mattool {
+  height: 30px;
+  margin-left: 300px;
+  width: 450px;
+  align-content: space-around;
+}
+.input {
+  height: 20px;
+  border: none;
+  outline: none;
+  position: absolute;
+  margin-left: 350px;
+  margin-top: 2px;
+}
+.mysearch {
+  position: absolute;
+  border: none;
+  outline: none;
+  margin-left: 300px;
+}
+span {
+  margin-left: 250px;
+}
+.cart {
+  margin-left: 4%;
+  padding-right: 5%;
+  background-color: none;
+  outline: none;
+  color: aliceblue;
+  margin-right: 3%;
+}
+.login {
+  margin-left: 6%;
+  background-color: none;
+  outline: none;
+  color: aliceblue;
+}
+.profile {
+  margin-left: 8px;
+}
+::ng-deep .profilemenu {
+  width: 300px;
+  height: 340px;
+}
+.mat-headline,
+.mat-subheading-1 {
+  margin-top: 50%;
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+}
+.signup,
+.log {
+  width: 50%;
+  
+ :hover{
+    background: none;
+  }
+}
+
+
+
+.fileuploadbtn {
+  width: 0px;
+  height: 0px;
+  display: none;
+  visibility: hidden;
+}
+.icon {
+  color: black;
+  margin-left: -79px;
+}
+.pic {
+  width: 50px;
+  height: 50px;
+  color: brown;
+  position: absolute;
+  border: 1px red solid;
+  // left: 35%;
+  margin-top: -12px;
+}
+.upload-img {
+  position: relative;
+  margin-left: 50%;
+  padding-top: 13%;
+}
+.editbutton {
+  //background-color: rgb(179, 59, 59);
+  color: black;
+  left: 25%;
+  width: 50%;
+}
+// #logout {
+//   left: 0%;
+// }
+
+.divfooter {
+  width: 1366px;
+  border: 1px solid #e2e2e2;
+  opacity: 1;
+}
+
+.matfooter {
+  height: 55px;
+  background-color: rgb(179, 59, 59);
+  color: white;
+  background-color: black;
+  padding-left: 17%;
+  padding-top: 2px;
+}
+
+.span.small {
+  font-size: 5px;
+}
+.mat-badge-content {
+  background: white;
+  color: #a03037;
+}
+
+.search {
+  color: black;
+}
+// -------------------------------------------------------------------------------
+
+.tool {
+  width: 100%;
+  height: 64px;
+  background-color: #a03037;
+  top: 0;
+  position: fixed;
+  z-index: 100;
+}
+
+.titleText {
+  margin-left: 6%;
+  color: white;
+  margin-right: 3%;
+}
+@media only screen and (max-width: 720px) {
+  .titleText {
+    font-size: 15px;
+    margin-left: -2%;
+    color: white;
+    margin-right: 16px;
+  }
+}
+
+
+
+
+@media only screen and (max-width: 720px) {
+  .search-mat-card{
+    margin-right: 10px;  
+    width: 30px;
+   } 
+}
+@media only screen and (max-width: 720px) {
+  .cart{
+    font-size: 14px;
+    margin-right: 25px;
+  }
+}
+
+
+@media only screen and (max-width: 720px) {
+  .mat-icon{
+  font-size: 18px;
+}
+}
+
+@media only screen and (max-width: 720px) {
+.searchInput{
+ margin-left: -15px;
+
+}
+}
+@media only screen and (max-width: 720px) {
+.searchIcon{
+  font-size: 17px;
+  margin-right: 3px;
+}
+}
+
+
+
+
+
+
+.searchIcon {
+  opacity: 0.5;
+  color: black;
+}
+.searchIcon:hover {
+  opacity: 1;
+}
+.searchInput {
+  height: 50%;
+  width: 90%;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  font-family: 'Times New Roman', Times, serif;
+  font-style: normal;
+  color: dimgrey;
+}
+.search-mat-card {
+  margin-left: -3%;
+  width: 50%;
+  height: 54%;
+  padding: 0px;
+}
+button {
+  outline: none;
+}

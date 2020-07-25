@@ -1,0 +1,133 @@
+.my-card {
+  width:40%;
+  //outline: auto;
+  //border: 1px red solid;
+  //margin-right: 20%;
+  //float:center;
+  display: flex;
+  padding-bottom: 2px;
+  flex-wrap: wrap;
+  //margin-top: 10%;
+ // box-sizing: border-box;
+  justify-content: center;
+  box-shadow: 0px 2px 8px 0px;//0 4px 8px 0  rgb(179, 59, 59),0 6px 20px 0 rgba(241, 37, 37, 0.19);
+ // border-radius: 13px;
+  margin: 0 auto; 
+  //opacity: 1;
+}
+
+.mat-toolbar {
+  background-color: rgb(179, 59, 59);
+  color: white;
+}
+.title-center {
+  flex: 1 1 auto;
+  text-align: center;
+}
+@media screen and (max-width: 959px) {
+  /* Column Gap */
+  .my-card {
+    margin-right: 50px;
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .my-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}
+
+//  .example-container .mat-form-field + .mat-form-field {
+//      margin-left: 8px;
+//    }
+.mat-form-field {
+  width: 100%;
+  padding-top: 5%;
+}
+.mat-radio-button {
+  //margin: 0 5px 0 5px;
+  padding-right:25px;
+  margin-top:0px;
+}
+
+.right {
+   margin-top:-4%;
+  margin-left:45%;
+  color: rgb(179, 59, 59);
+}
+input[type=text] {
+ background-color:whitesmoke;
+}
+.a
+{
+  font-size: medium;
+  text-decoration: none;
+ }
+.mat-raised-button {
+  margin-top: 10px;
+  background-color: rgb(179, 59, 59);
+  color: aliceblue;
+  //margin-left: 50px;
+  }
+.left
+{
+  color:rgb(179, 59, 59);
+}
+.mat-button{
+  color:  rgb(179, 59, 59);
+  margin-bottom: -50%;
+  border-radius: 30px;
+  height:40px;
+  
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: black;
+  
+}
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: black;
+}
+.container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+/*.mat-dialog-content {
+  padding: 0px;
+  margin:0px;
+  margin-left: -47%;
+  padding-right: -30%;
+  //margin-top: 0px;
+  //margin-bottom: 0px;
+  //height: auto;
+  //box-sizing: border-box;
+  //box-shadow: 0px 2px 8px 0px;
+  //border-bottom: none;
+  border:1px red solid;
+}*/
+:host ::ng-deep .mat-form-field-wrapper{
+  margin: 0 !important;
+  padding-bottom: 6%;
+}
+
+::ng-deep mat-dialog-container {
+   overflow: hidden;
+   box-shadow: 0px 2px 8px 0px;
+}
+.mat-dialog-container {
+  padding: 0px !important;
+}
+/*::ng-deep .custom-modalbox > mat-dialog-container {
+  //background-color:;
+ // padding-left: -50px;
+  //border: 1px red solid;
+ // width: 100%;
+  //margin-left: 50%;
+  //opacity: 0;
+}*/
+.loginbutton
+{
+  margin-left: 40%;
+}

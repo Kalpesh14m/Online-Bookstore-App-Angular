@@ -1,0 +1,334 @@
+<div
+  *ngIf="cartSize === 0"
+  fxLayoutAlign="center center"
+  fxLayout="column"
+  fxLayoutGap="10px"
+  style="padding-top: 15%;"
+>
+  <img class="book-img" src="../../../assets/images/education.svg" />
+
+  <div style="font-weight: bold;">
+    Your Cart Is Empty !
+  </div>
+  <div>
+    Add books to it now
+  </div>
+  <div>
+    <button
+      class="shop-now"
+      mat-button
+      [disableRipple]="true"
+      (click)="onShowNow()"
+    >
+      Shop Now
+    </button>
+  </div>
+</div>
+<div
+  *ngIf="cartSize > 0"
+  fxLayout="column"
+  fxLayoutGap="2%"
+  style="padding-left: 15%; padding-top: 10%;"
+>
+  <!-- <div> -->
+  <mat-card>
+    <div fxLayout="column">
+      <span class="My-cart"> My Cart({{ cartSize }})</span>
+      <div
+        fxLayout="column"
+        fxLayoutAlign="space-around start"
+        *ngFor="let cartBook of cartBooks"
+      >
+        <div class="book" fxLayout="row">
+          <div class="book-image">
+            <img src="{{ cartBook.book.imageURL }}" />
+          </div>
+
+          <div
+            fxLayout="column"
+            fxLayoutAlign="start start"
+            class="book-details"
+            fxLayoutGap="6%"
+          >
+            <span>{{ cartBook.book.bookName }}</span>
+            <span class="author-name">by {{ cartBook.book.authorName }}</span>
+            <span>Rs. {{ cartBook.totalBookPrice }}</span>
+          </div>
+        </div>
+        <div
+          class="input-group"
+          fxLayout="row"
+          fxLayoutGap="2%"
+          fxLayoutAlign="start center"
+        >
+        <button
+        mat-mini-fab
+        class="button-minus"
+        *ngIf="cartBook.bookQuantity==1"
+        [disableRipple]="true"
+        [disabled]= "true"
+        fxLayoutAlign="center start"
+      >
+        <mat-icon
+          fxLayoutAlign="center center"
+          style="color: black; font-size: xx-small;"
+          >remove</mat-icon
+        >
+      </button>
+          <button
+            mat-mini-fab
+            class="button-minus"
+            *ngIf="cartBook.bookQuantity>1"
+            (click)="removeQuantity(cartBook)"
+            [disableRipple]="true"
+            fxLayoutAlign="center start"
+          >
+            <mat-icon
+              fxLayoutAlign="center center"
+              style="color: black; font-size: xx-small;"
+              >remove</mat-icon
+            >
+          </button>
+            <input
+              mat-input
+              type="number"
+              (input)="onKey($event,cartBook)"
+              max="5"
+              min="1"
+              value="{{ cartBook.bookQuantity }}"
+              class="quantity-field"
+            />
+          <button
+            mat-mini-fab
+            class="button-plus"
+            (click)="addQuantity(cartBook)"
+            [disableRipple]="true"
+            fxLayoutAlign="center start"
+          >
+            <mat-icon
+              fxLayoutAlign="center center"
+              style="color: black; font-size: xx-small;"
+              >add</mat-icon
+            >
+          </button>
+          <button
+            mat-button
+            class="button-remove"
+            (click)="removeFromCart(cartBook)"
+            [disableRipple]="true"
+            fxLayoutAlign="center center"
+          >
+            Remove
+          </button>
+        </div>
+      </div>
+      <div fxLayoutAlign="end">
+        <button
+          mat-button
+          (click)="onPlaceOrder()"
+          class="button-placeorder"
+          fxLayoutAlign="center center"
+          [disableRipple]="true"
+        >
+          <span style="font-size: small; height: 10px; color: white;"
+            >PLACE ORDER</span
+          >
+        </button>
+      </div>
+    </div>
+  </mat-card>
+  <!-- </div> -->
+  <!-- <div> -->
+  <mat-card class="form">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Customer Details
+    <span fxLayoutAlign="end" *ngIf="show" (click)="onedit()">Edit</span>
+    <ng-container *ngIf="show">
+      <div style="margin: 0 auto; text-align: left;">
+        <br />
+
+        <form [formGroup]="addressGroup" (ngSubmit)="continue()">
+          <mat-form-field appearance="outline">
+            <mat-label>*Name</mat-label>
+            <input
+              matInput
+              placeholder="Placeholder"
+              formControlName="name"
+              id="name"
+              required
+              #Myname
+              (input)="(Myname.value)"
+              style="background: none;"
+            /> </mat-form-field
+          ><br /><br />
+
+          <div class="row3">
+            <mat-form-field appearance="outline">
+              <mat-label>Phone Number</mat-label>
+              <input
+                matInput
+                placeholder="Placeholder"
+                formControlName="phone"
+                id="phone"
+                required
+                #Myphn
+                (input)="(Myphn.value)"
+                style="background: none;"
+              /> </mat-form-field
+            ><br /><br />
+          </div>
+          <mat-form-field appearance="outline">
+            <mat-label>Pin code</mat-label>
+            <input
+              matInput
+              placeholder="Placeholder"
+              formControlName="pincode"
+              id="pincode"
+              required
+              #Mypin
+              (input)="(Mypin.value)"
+              style="background: none;"
+            />
+          </mat-form-field>
+
+          <div class="row1">
+            <mat-form-field appearance="outline">
+              <mat-label>Locality</mat-label>
+              <input
+                matInput
+                placeholder="Placeholder"
+                formControlName="locality"
+                id="locality"
+                required
+                #Mylocal
+                (input)="(Mylocal.value)"
+                style="background: none;"
+              /> </mat-form-field
+            ><br /><br />
+          </div>
+          <br /><br />
+
+          <mat-form-field appearance="outline" fxFlexFill>
+            <mat-label>Address</mat-label>
+            <textarea
+              matInput
+              formControlName="address"
+              required
+              #Myaddr
+              (input)="(Myaddr.value)"
+              style="background: none;"
+            ></textarea>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>City</mat-label>
+            <input
+              matInput
+              placeholder="Placeholder"
+              formControlName="city"
+              id="city"
+              required
+              #Mycity
+              (input)="(Mycity.value)"
+              style="background: none;"
+            /> </mat-form-field
+          ><br />
+          <div class="row2">
+            <mat-form-field appearance="outline">
+              <mat-label>LandMark</mat-label>
+              <input
+                matInput
+                placeholder="Placeholder"
+                formControlName="landmark"
+                id="landmark"
+                required
+                #landmark
+                (input)="(landmark.value)"
+                style="background: none;"
+              />
+            </mat-form-field>
+          </div>
+          <!-- <div class="row2">
+            <mat-form-field appearance="outline">
+              <mat-label>LandMark</mat-label>
+              <input
+                matInput
+                placeholder="Placeholder"
+                formControlName="landmark"
+                id="landmark"
+                required
+               #landmark
+               (input)="landmark.value"
+               style="background: none;"
+              />
+            </mat-form-field>
+          </div>-->
+
+          <br /><br />
+          <mat-radio-group fxLayoutGap="5%" formControlName="type" required>
+            <mat-radio-button class="" value="home" (change)="selectAddrType($event)">Home</mat-radio-button>
+            <mat-radio-button value="work" (change)="selectAddrType($event)">Work</mat-radio-button>
+            <mat-radio-button value="other" (change)="selectAddrType($event)">Other</mat-radio-button
+            > </mat-radio-group
+          ><br /><br />
+
+          <div fxLayoutAlign="end">
+            <button
+              mat-button
+              class="button-placeorder"
+              fxLayoutAlign="center center"
+              [disableRipple]="true"
+              [disabled]="addressGroup.invalid"
+            >
+              <span style="font-size: small; height: 10px; color: white;"
+                >Continue</span
+              >
+            </button>
+          </div>
+        </form>
+      </div>
+    </ng-container>
+  </mat-card>
+  <!-- </div>
+<div> -->
+  <mat-card>
+    <div fxLayout="column">
+      <span class="My-cart"> Order Summary</span>
+      <div
+        fxLayout="column"
+        fxLayoutAlign="space-around start"
+        *ngFor="let cartBook of cartBooks"
+      >
+        <div class="book" *ngIf="disp" fxLayout="row">
+          <div class="book-image">
+            <img src="{{ cartBook.book.imageURL }}" />
+          </div>
+
+          <div
+            fxLayout="column" 
+            fxLayoutAlign="start start"
+            class="book-details"
+            fxLayoutGap="6%"
+          >
+            <span>{{ cartBook.book.bookName }}</span>
+            <span class="author-name">by {{ cartBook.book.authorName }}</span>
+            <span>Rs. {{ cartBook.totalBookPrice }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="total-price" fxLayoutAlign="space-between center">
+        <span *ngIf="disp">  Total Price: Rs. {{totalPrice}}</span>
+        <button
+          mat-button
+          (click)="onCheckOut()"
+          class="button-placeorder"
+          fxLayoutAlign="center center"
+          [disableRipple]="true"
+          *ngIf="disp"
+        >
+          <span style="font-size: small; height: 10px; color: white;"
+            >CHECK OUT</span
+          >
+        </button>
+      </div>
+    </div>
+  </mat-card>
+</div>

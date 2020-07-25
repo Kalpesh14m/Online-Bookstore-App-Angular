@@ -1,0 +1,35 @@
+button{
+    outline: none;
+}
+
+@media screen and (max-width: 1000px) {
+    .main-div{
+      width: 450px;
+    }
+}
+@media screen and (max-width: 800px) {
+  .main-div{
+    width: 350px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .main-div{
+    width: 250px;
+  }
+}
+@media screen and (max-width: 420px) {
+  .main-div{
+    width: 230px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}
+@media screen and (max-width: 350px) {
+  .main-div{
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}

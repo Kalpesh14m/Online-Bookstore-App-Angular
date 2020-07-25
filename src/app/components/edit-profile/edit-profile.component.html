@@ -1,0 +1,39 @@
+<h6 mat-dialog-title>Edit Profile</h6>
+<div class="container" fxLayout="row" fxLayoutGap="10%">
+    <div  class="imgdiv">
+        <label for="file-input">
+        <div class="imagediv">
+            <img src={{this.profile}} class="img"/>
+        </div>
+        </label>
+    <!--<div class="change-img">-->
+        
+           <!--<small class="changetext">Change Photo</small>
+        </label>-->
+        <input type="file" (change)="OnSelectedFile($event)" class="fileuploadbtn" id="file-input"/>
+   <!-- </div>-->
+    </div>
+</div>
+<mat-card>
+    <table>
+        <tr><td>User Name </td><td>:</td><td><input [(ngModel)]="username" class="input-field" type="text" class="emailfield" readonly ></td></tr>
+        <mat-divider></mat-divider><br>
+        <tr><td>&nbsp;Password </td><td>:</td><td><input [(ngModel)]="password" (click)="changeIcon()" #pass class="input-field" type="text" [type]="hide ? 'password' : 'text'"></td>
+            <button mat-icon-button matSuffix class="matbutton" (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon *ngIf="editicon" (click)="changeIcon()">edit</mat-icon>
+                <mat-icon *ngIf="passicon">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </tr>
+        <!--{{pass.className}}-->
+        <mat-divider></mat-divider><br>
+        <tr><td>Full Name </td><td>:&nbsp;&nbsp;</td><td><input [(ngModel)]="fullname" class="input-field" type="text" ></td><mat-icon matSuffix class="icon">edit</mat-icon></tr>
+        <mat-divider></mat-divider><br>
+        <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;Email</td><td>:&nbsp;&nbsp;</td><td><input [(ngModel)]="usermail" class="input-field" class="emailfield" type="text" readonly></td><td></td></tr>
+        <mat-divider></mat-divider><br>
+        <tr><td>&nbsp;&nbsp;&nbsp;Mobile</td><td>:&nbsp;&nbsp;</td><td><input [(ngModel)]="mobile" class="input-field" class="emailfield" type="text"></td></tr>
+    </table>
+</mat-card>
+<div class="buttons">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button mat-dialog-close (click)="update()">Save</button>
+</div>

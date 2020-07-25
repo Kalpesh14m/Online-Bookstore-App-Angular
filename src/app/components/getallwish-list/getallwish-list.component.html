@@ -1,0 +1,47 @@
+
+<mat-toolbar>
+    <mat-icon>card_giftcard</mat-icon>
+    <span class="title-left">wishlist</span><a href="dashboard" class="title-right" >Continue Shopping</a>
+  </mat-toolbar><br><br>
+  
+  
+   <div fxLayout="row"  fxLayoutAlign="space-around center" *ngFor="let book of books">
+   <div class="bookImageDiv" style="vertical-align:-150px" > 
+      <img  src={{book.imageURL}}>
+    </div> 
+     <span class="right">
+         <div class="name">
+        {{book.bookName}}
+         </div>
+        <div class="author">
+        By: {{book.authorName}}
+        </div>
+        <div class="info">
+        About: {{book.description}}
+        </div>
+        <div class="price">
+        Rs.{{book.price}}
+        </div>
+  
+        <div class="box" style="color: rgb(240, 233, 233);">
+         <button mat-raised-button  fxLayoutAlign="center"
+         [disableRipple]="true"
+         (click)="onDeleteWishList(book.bookId)"  >Delete WishList</button><br>  <button mat-stroked-button   fxLayoutAlign="center" (click)="addToCart(book)">Add To cart</button>
+        </div>  
+        <div class="divider">
+        <mat-divider></mat-divider>       
+        </div>
+  </span> 
+      </div>
+      
+      
+  
+  
+  
+  
+  
+  
+    
+  
+    
+  

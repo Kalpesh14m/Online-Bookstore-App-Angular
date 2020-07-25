@@ -1,0 +1,50 @@
+
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+  
+  td, th {
+    //border: 1px solid #292828;
+    text-align: center;
+    padding: 8px;
+     
+  }
+  td {
+    //border: 1px solid #292828;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    //background-color: #dddddd;
+  }
+  span{
+    word-wrap: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -o-hyphens: auto;
+    hyphens: auto;
+}
+  @media only screen and (max-width: 450px) {
+    table{
+      font-size: xx-small;
+    }
+    .contact{
+      //padding-left: 0.2%;
+    }
+    .contactButton{
+      padding: 5px;
+      padding-left: 0.5%;
+      margin-left: 0.5%;
+    }
+  }
+
+  @media only screen and (max-width: 350px) {
+    .contact{
+      padding-left: 0.2%;
+    }
+  }

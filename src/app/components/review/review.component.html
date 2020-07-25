@@ -1,0 +1,47 @@
+
+  <div class="main-div" fxLayout="row" fxLayoutAlign="space-evenly center">
+    <button mat-button  color="primary" style="background: none" *ngIf="rating!=5" (click)="onRating(5)">
+      <mat-icon>insert_emoticon</mat-icon>
+    </button>
+    <button mat-mini-fab  color="primary" *ngIf="rating==5">
+      <mat-icon>insert_emoticon</mat-icon>
+    </button>
+
+    <button mat-button style="color:rgb(43, 142, 223)" *ngIf="rating!=4" (click)="onRating(4)">
+      <mat-icon>sentiment_satisfied_alt</mat-icon>
+    </button>
+    <button mat-mini-fab style="background-color:rgb(43, 142, 223)" *ngIf="rating==4">
+      <mat-icon>sentiment_satisfied_alt</mat-icon>
+    </button>
+
+    <button mat-button style="color:rgb(172, 157, 236)" *ngIf="rating!=3" (click)="onRating(3)">
+      <mat-icon>sentiment_satisfied</mat-icon>
+    </button>
+    <button mat-mini-fab style="background-color:rgb(172, 157, 236)" *ngIf="rating==3">
+      <mat-icon>sentiment_satisfied</mat-icon>
+    </button>
+
+    <button mat-button color="accent" *ngIf="rating!=2" (click)="onRating(2)">
+      <mat-icon>sentiment_dissatisfied</mat-icon>
+    </button>
+    <button mat-mini-fab color="accent" *ngIf="rating==2">
+      <mat-icon>sentiment_dissatisfied</mat-icon>
+    </button>
+
+    <button mat-button color="warn" *ngIf="rating!=1" (click)="onRating(1)">
+      <mat-icon>sentiment_very_dissatisfied</mat-icon>
+    </button>
+    <button mat-mini-fab color="warn" *ngIf="rating==1">
+      <mat-icon>sentiment_very_dissatisfied</mat-icon>
+    </button>
+  </div>
+
+<div fxLayout="column" fxLayoutAlign="space-around center">
+  <mat-form-field style="box-shadow: none;margin-top: 5%; width: 100%">
+    <mat-label>Add Comment</mat-label>
+    <textarea matInput maxlength="200" [(ngModel)]="review" name="review" placeholder="text" style="overflow: hidden"
+    cdkTextareaAutosize></textarea>
+  </mat-form-field>
+
+  <button mat-flat-button mat-dialog-close color="warn" (click)="onSubmit()">Submit</button>
+</div>

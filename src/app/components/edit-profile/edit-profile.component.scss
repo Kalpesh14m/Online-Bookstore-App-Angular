@@ -1,0 +1,63 @@
+.imagediv,.img
+{
+    height: 100px;
+    width: 100px;
+    //left: 20%;
+    top: 2%;
+    //position: relative;
+}
+.input-field
+{
+    outline:none;
+    border: none;
+    width: 100%;
+}
+.emailfield
+{
+    pointer-events: none;
+    outline: none;
+    border: none;
+    color: rgba(0, 0, 0, 0.5);
+  
+}
+.buttons
+{
+  float: right;
+  margin-top: 5%;
+}
+.custom-dialog-container .mat-dialog
+{
+    padding: 0px none;
+    border: 1px red solid;
+}
+h6{
+    background-color: maroon;
+    color: white;
+    font-weight: normal;
+    text-align: center;
+}
+.fileuploadbtn
+{
+    visibility:hidden;
+    width:0;
+    height:0;
+    display: none;
+}
+/*::placeholder { 
+    color: black;
+    opacity: 1;
+  }*/
+.matbutton
+{
+    outline: none;
+}
+.icon
+{
+    float: right;
+    margin-left: 20%;
+}
+.changetext
+{
+    //color: red;
+    border: 1px black solid;
+}

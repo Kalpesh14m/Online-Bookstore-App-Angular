@@ -1,0 +1,118 @@
+<div style="width: 100%; height: 100%;">
+  <mat-toolbar fxLayout="row" fxLayoutAlign="space-between center">
+    <div class="titleText" fxLayoutGap="3%">
+      <img src="../../../assets/images/education.svg" />
+      <a
+        href="http://localhost:4200/vendor-dashboard/display-books"
+        style="color: white;"
+        >BookStore</a
+      >
+    </div>
+    <mat-card
+      class="search-mat-card"
+      fxLayout="row"
+      fxLayoutAlign="space-around center"
+    >
+      <button mat-icon-button [disableRipple]="true" matTooltip="search">
+        <mat-icon class="searchIcon">search</mat-icon>
+      </button>
+      <input
+        (input)="onKey($event)"
+        class="searchInput"
+        type="text"
+        placeholder="Search..."
+      />
+    </mat-card>
+    <span class="spanClass"></span>
+    <button
+      mat-icon-button
+      matTooltip="Account"
+      [disableRipple]="true"
+      [matMenuTriggerFor]="profileMenu"
+    >
+      <img
+        *ngIf="!isProfileAvailable"
+        mat-card-avatar
+        src="../../../assets/images/user.png"
+        class="profile"
+      />
+      <img
+        *ngIf="isProfileAvailable"
+        mat-card-avatar
+        src="{{ this.profile }}"
+        class="profile"
+      />
+    </button>
+    <mat-menu #profileMenu="matMenu" xPosition="before">
+      <div fxLayoutAlign="center" style="padding: 2%;">
+        <img
+          *ngIf="!isProfileAvailable"
+          mat-card-avatar
+          src="../../../assets/images/user.png"
+          class="profile"
+        />
+        <img
+          *ngIf="isProfileAvailable"
+          mat-card-avatar
+          src="{{ this.profile }}"
+          class="profile"
+        />
+      </div>
+      <div class="usertext" fxLayout="column" fxLayoutAlign="center">
+        <span fxLayoutAlign="center">{{ username }}</span>
+        <span fxLayoutAlign="center" style="padding: 2%;">{{ usermail }}</span>
+      </div>
+      <div fxLayout="column" fxLayoutGap="4%">
+        <mat-divider></mat-divider>
+        <div fxLayoutAlign="center">
+          <button
+            style="color: black;"
+            class="edit"
+            mat-button
+            [disableRipple]="true"
+            class="editbutton"
+            (click)="openDialogztoedit()"
+          >
+            Edit Profile
+          </button>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="logout" fxLayoutAlign="center">
+          <button
+            mat-button
+            [disableRipple]="true"
+            id="logout"
+            style="color: black;"
+            (click)="Logout()"
+          >
+            Sign Out
+          </button>
+        </div>
+      </div>
+    </mat-menu>
+  </mat-toolbar>
+  <!-- <mat-card
+    fxLayout="column"
+    fxLayoutAlign="center center"
+    fxLayoutGap="1%"
+    ngClass.lt-md="mainContainer-lt-md
+      "
+    ngClass.gt-sm="mainContainer-lg"
+  >
+    <span class="mainSellingSpan">Start Selling Books-Online</span>
+    <span class="subSellingSpan">Sell On BookStore</span>
+
+    <button
+      mat-raised-button
+      class="addBookButton"
+      fxLayoutAlign="center"
+      [disableRipple]="true"
+      (click)="openBookForm()"
+    >
+      <span class="bookText">Add Book</span>
+    </button>
+  </mat-card> -->
+
+  <router-outlet></router-outlet>
+  <br /><br />
+</div>
